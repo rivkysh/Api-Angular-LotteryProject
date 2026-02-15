@@ -1,0 +1,80 @@
+2026-02-15 20:36:23.319 +02:00 [INF] Starting Store API application
+2026-02-15 20:36:24.021 +02:00 [INF] Store API is now running
+2026-02-15 20:36:24.062 +02:00 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-15 20:36:24.203 +02:00 [INF] Now listening on: http://localhost:5009
+2026-02-15 20:36:24.292 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-15 20:36:24.294 +02:00 [INF] Hosting environment: Development
+2026-02-15 20:36:24.299 +02:00 [INF] Content root path: C:\Users\User\Desktop\RandomProject\server\ProjectApi\exe1
+2026-02-15 20:36:26.000 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/swagger - null null
+2026-02-15 20:36:26.145 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5009/swagger - 301 0 null 140.7579ms
+2026-02-15 20:36:26.343 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/swagger/index.html - null null
+2026-02-15 20:36:26.424 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5009/swagger/index.html - 200 null text/html;charset=utf-8 81.0402ms
+2026-02-15 20:36:26.541 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/_framework/aspnetcore-browser-refresh.js - null null
+2026-02-15 20:36:26.555 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5009/_framework/aspnetcore-browser-refresh.js - 200 16493 application/javascript; charset=utf-8 12.5233ms
+2026-02-15 20:36:26.561 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/_vs/browserLink - null null
+2026-02-15 20:36:26.602 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5009/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.9125ms
+2026-02-15 20:36:26.821 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/swagger/v1/swagger.json - null null
+2026-02-15 20:36:26.886 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5009/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 64.7324ms
+2026-02-15 20:36:57.028 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/api/Prize/GetListPrizes - null null
+2026-02-15 20:36:57.044 +02:00 [INF] CORS policy execution successful.
+2026-02-15 20:36:57.048 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-02-15 20:36:57.053 +02:00 [INF] Incoming Request: GET /api/Prize/GetListPrizes
+2026-02-15 20:36:57.141 +02:00 [INF] Executing endpoint 'exe1.Controllers.PrizeController.Get (exe1)'
+2026-02-15 20:36:57.159 +02:00 [INF] Route matched with {action = "Get", controller = "Prize"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[exe1.Models.Prize]]] Get() on controller exe1.Controllers.PrizeController (exe1).
+2026-02-15 20:36:58.691 +02:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[DonorId], [p].[ImgUrl], [p].[IsActive], [p].[IsBought], [p].[Islottered], [p].[Name], [p].[Price], [p].[PurchacesAmount], [p].[ThewinnerId], [p].[quantity], [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[PhoneNumber], [u].[Role], [u].[UserName]
+FROM [Prizes] AS [p]
+LEFT JOIN [Users] AS [u] ON [p].[ThewinnerId] = [u].[Id]
+WHERE [p].[IsActive] = CAST(1 AS bit)
+2026-02-15 20:36:58.798 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[exe1.Models.Prize, exe1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-15 20:36:58.824 +02:00 [INF] Executed action exe1.Controllers.PrizeController.Get (exe1) in 1659.3859ms
+2026-02-15 20:36:58.826 +02:00 [INF] Executed endpoint 'exe1.Controllers.PrizeController.Get (exe1)'
+2026-02-15 20:36:58.827 +02:00 [INF] Completed GET /api/Prize/GetListPrizes responded 200 in 1775ms
+2026-02-15 20:36:58.835 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5009/api/Prize/GetListPrizes - 200 null application/json; charset=utf-8 1807.2451ms
+2026-02-15 20:37:13.106 +02:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5009/api/User/Login - null null
+2026-02-15 20:37:13.110 +02:00 [INF] CORS policy execution successful.
+2026-02-15 20:37:13.111 +02:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5009/api/User/Login - 204 null null 4.936ms
+2026-02-15 20:37:13.115 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5009/api/User/Login - application/json 45
+2026-02-15 20:37:13.117 +02:00 [INF] CORS policy execution successful.
+2026-02-15 20:37:13.118 +02:00 [INF] Incoming Request: POST /api/User/Login
+2026-02-15 20:37:13.119 +02:00 [INF] Executing endpoint 'exe1.Controllers.UserController.Login (exe1)'
+2026-02-15 20:37:13.127 +02:00 [INF] Route matched with {action = "Login", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[exe1.Dto.LoginResponseDto]] Login(exe1.Dto.LoginDto) on controller exe1.Controllers.UserController (exe1).
+2026-02-15 20:37:13.246 +02:00 [INF] Executed DbCommand (24ms) [Parameters=[@__userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[Password], [u].[PhoneNumber], [u].[Role], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__userName_0
+2026-02-15 20:37:13.278 +02:00 [INF] Generated JWT token for user 1013
+2026-02-15 20:37:13.282 +02:00 [INF] Executing OkObjectResult, writing value of type 'exe1.Dto.LoginResponseDto'.
+2026-02-15 20:37:13.286 +02:00 [INF] Executed action exe1.Controllers.UserController.Login (exe1) in 156.5744ms
+2026-02-15 20:37:13.289 +02:00 [INF] Executed endpoint 'exe1.Controllers.UserController.Login (exe1)'
+2026-02-15 20:37:13.289 +02:00 [INF] Completed POST /api/User/Login responded 200 in 171ms
+2026-02-15 20:37:13.291 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5009/api/User/Login - 200 null application/json; charset=utf-8 175.4583ms
+2026-02-15 20:37:15.109 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/api/Doner/GetListDoners - null null
+2026-02-15 20:37:15.113 +02:00 [INF] CORS policy execution successful.
+2026-02-15 20:37:15.114 +02:00 [INF] Incoming Request: GET /api/Doner/GetListDoners
+2026-02-15 20:37:15.119 +02:00 [INF] Executing endpoint 'exe1.Controllers.DonerController.Get (exe1)'
+2026-02-15 20:37:15.126 +02:00 [INF] Route matched with {action = "Get", controller = "Doner"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[exe1.Models.Donor]] Get() on controller exe1.Controllers.DonerController (exe1).
+2026-02-15 20:37:15.160 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Email], [d].[IsActive], [d].[Name], [d].[PhoneNumber]
+FROM [Donors] AS [d]
+WHERE [d].[IsActive] = CAST(1 AS bit)
+2026-02-15 20:37:15.174 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[exe1.Models.Donor, exe1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-15 20:37:15.181 +02:00 [INF] Executed action exe1.Controllers.DonerController.Get (exe1) in 51.1121ms
+2026-02-15 20:37:15.185 +02:00 [INF] Executed endpoint 'exe1.Controllers.DonerController.Get (exe1)'
+2026-02-15 20:37:15.186 +02:00 [INF] Completed GET /api/Doner/GetListDoners responded 200 in 71ms
+2026-02-15 20:37:15.187 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5009/api/Doner/GetListDoners - 200 null application/json; charset=utf-8 78.0086ms
+2026-02-15 20:37:26.971 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5009/api/Doner/GetDonorByName/שלום - null null
+2026-02-15 20:37:26.977 +02:00 [INF] CORS policy execution successful.
+2026-02-15 20:37:26.979 +02:00 [INF] Incoming Request: GET /api/Doner/GetDonorByName/%D7%A9%D7%9C%D7%95%D7%9D
+2026-02-15 20:37:26.981 +02:00 [INF] Executing endpoint 'exe1.Controllers.DonerController.GetDonorByName (exe1)'
+2026-02-15 20:37:26.988 +02:00 [INF] Route matched with {action = "GetDonorByName", controller = "Doner"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[exe1.Models.Donor]] GetDonorByName(System.String) on controller exe1.Controllers.DonerController (exe1).
+2026-02-15 20:37:26.998 +02:00 [INF] מנסה לשלוף תורם עם שם: שלום
+2026-02-15 20:37:27.008 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Email], [d].[IsActive], [d].[Name], [d].[PhoneNumber]
+FROM [Donors] AS [d]
+WHERE [d].[IsActive] = CAST(1 AS bit)
+2026-02-15 20:37:27.012 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[exe1.Models.Donor, exe1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-15 20:37:27.013 +02:00 [INF] Executed action exe1.Controllers.DonerController.GetDonorByName (exe1) in 19.6446ms
+2026-02-15 20:37:27.015 +02:00 [INF] Executed endpoint 'exe1.Controllers.DonerController.GetDonorByName (exe1)'
+2026-02-15 20:37:27.016 +02:00 [INF] Completed GET /api/Doner/GetDonorByName/%D7%A9%D7%9C%D7%95%D7%9D responded 200 in 37ms
+2026-02-15 20:37:27.020 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5009/api/Doner/GetDonorByName/שלום - 200 null application/json; charset=utf-8 48.4625ms
