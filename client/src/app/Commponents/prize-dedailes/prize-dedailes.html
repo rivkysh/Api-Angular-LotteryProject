@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<div class="details-container" *ngIf="gift">
+  
+  <div class="back-link" routerLink="/prizes">
+  <i class="fas fa-arrow-right"></i>
+  <span (click)="backToPrizes()">חזרה לכל המתנות</span>
+</div>
+
+  <div class="gift-showcase">
+    
+    <div class="image-side">
+      <img [src]="gift.imgUrl" [alt]="gift.name" class="main-image">
+    </div>
+    
+    <div class="info-side">
+      <h1 class="gift-name">{{ gift.name }}</h1>
+      <p class="gift-price">{{ gift.price }} ₪</p>
+      
+      <div class="description-box">
+        <h3>תיאור המתנה:</h3>
+        <p>{{ gift.description }}</p>
+      </div>
+
+      <div class="action-section">
+        <button class="add-to-cart-btn" (click)="addToBasket(gift.id)">
+          <span>הוספה לסל</span>
+          <i class="fas fa-cart-plus"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="!gift" class="loading-state">
+  <div class="loader-gold"></div>
+  <p>טוען פרטי מתנה...</p>
+</div>

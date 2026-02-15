@@ -1,0 +1,159 @@
+// משתנים
+$gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+
+// 1. חובה: ה-host חייב להיות מקובע לכל המסך כדי שהטשטוש יעבוד
+:host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; // הכי גבוה שיש
+}
+
+// 2. ה-Overlay - זה מה שיוצר את הטשטוש על כל האתר
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); // כהות חזקה יותר
+    backdrop-filter: blur(10px) !important; // טשטוש חזק ויוקרתי
+    -webkit-backdrop-filter: blur(10px) !important;
+    z-index: 1; // יחסית ל-host
+}
+
+// 3. הכרטיס המלכותי - המרכז של הדיאלוג
+.royal-update-card {
+    position: relative; // יחסית ל-host הממורכז
+    z-index: 2;
+    width: 850px;
+    max-width: 95vw;
+    max-height: 85vh;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: zoomIn 0.3s ease-out;
+    direction: rtl;
+}
+
+// 4. אזור הטבלה - עם גלילה פנימית
+.royal-form-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+
+    &::-webkit-scrollbar { width: 6px; }
+    &::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
+}
+
+// אנימציה פשוטה לפתיחה חלקה
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* שאר ה-CSS של הטבלה והכותרת ששלחת קודם נשאר אותו דבר */
+.royal-header-black {
+    background: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #d4af37;
+    h2 { color: #d4af37; margin: 0; }
+}
+
+.luxury-table-styled {
+    width: 100%;
+    border-collapse: collapse;
+    th { border-bottom: 2px solid #d4af37; padding: 12px; }
+    td { padding: 12px; border-bottom: 1px solid #eee; }
+}
+:host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999 !important; // הכי גבוה שיש כדי לעבור גם את ה-Header
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    // חובה צבע רקע חצי שקוף כדי שהטשטוש ייראה
+    background-color: rgba(0, 0, 0, 0.5) !important; 
+    
+    // הטשטוש עצמו
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    
+    z-index: -1; // שיהיה מאחורי הכרטיס המלכותי אבל בתוך ה-host
+}
+
+.royal-update-card {
+    // שאר העיצוב שלך לכרטיס...
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    width: 850px;
+    max-width: 95vw;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    direction: rtl;
+}
+.royal-header-black {
+    position: relative; // חובה כדי שה-X יתמקם יחסית אליו
+    background: #1a1a1a;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 3px solid #d4af37;
+}
+
+.close-dialog-x {
+    position: absolute;
+    left: 20px;       // ממוקם בצד שמאל (מתאים לעברית)
+    top: 50%;
+    transform: translateY(-50%); // מרכוז אנכי מושלם
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2); // מסגרת עדינה מאוד
+    color: #bdc3c7;   // צבע כסוף ראשוני
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; // עיגול
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+
+    i {
+        font-size: 1.8rem; // גודל ה-X
+        line-height: 1;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1); // תאורה עדינה ברקע
+        color: #ffffff;                       // הופך ללבן בוהק
+        border-color: #d4af37;                // המסגרת הופכת לזהב
+        transform: translateY(-50%) rotate(90deg); // אפקט סיבוב קטן ומרשים
+    }
+
+    &:active {
+        transform: translateY(-50%) scale(0.9); // אפקט לחיצה
+    }
+}

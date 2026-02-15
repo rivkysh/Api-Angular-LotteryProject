@@ -1,0 +1,32 @@
+<div class="auth-container">
+  <div class="luxury-form">
+    <h1 class="form-title">התחברות</h1>
+    <div class="gold-divider"></div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+      <div class="input-group">
+        <input type="text" formControlName="username" placeholder="שם משתמש">
+        <small *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error-msg" style="display: block; margin-top: -15px; margin-bottom: 15px;">
+          נא להזין שם משתמש
+        </small>
+      </div>
+
+      <div class="input-group">
+        <input type="password" formControlName="password" placeholder="סיסמה">
+        <small *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-msg" style="display: block; margin-top: -15px; margin-bottom: 15px;">
+          נא להזין סיסמה תקינה
+        </small>
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid" class="submit-btn">
+        כניסה למערכת
+      </button>
+
+      <div class="switch-auth" (click)="pathToResister()" >
+        אין לך חשבון? <a routerLink="/register">הרשמה</a>
+      </div>
+      
+    </form>
+  </div>
+</div>

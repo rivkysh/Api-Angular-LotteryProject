@@ -1,0 +1,121 @@
+$gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 4000;
+}
+
+.royal-gifts-dialog {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 900px;
+    max-height: 85vh;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 60px rgba(212, 175, 55, 0.4);
+    z-index: 4001;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    direction: rtl;
+    animation: modalSlideUp 0.4s ease-out;
+}
+
+.royal-header-black {
+    background: #1a1a1a;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 3px solid #d4af37;
+    
+    .header-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        color: #d4af37;
+        
+        i { font-size: 2rem; }
+        h2 { margin: 0; font-size: 1.8rem; font-weight: 800; }
+    }
+}
+
+.royal-dialog-body {
+    padding: 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+    background: #fdfdfd;
+
+    /* גריד של המתנות */
+    .gifts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+.gift-card-mini {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+        border-color: #d4af37;
+    }
+
+    .gift-image-container {
+        width: 100%;
+        height: 150px;
+        background: #f9f9f9;
+        img { width: 100%; height: 100%; object-fit: cover; }
+    }
+
+    .gift-details {
+        padding: 12px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .gift-name { font-weight: bold; color: #1a1a1a; font-size: 1.1rem; }
+        .gift-price { color: #b38728; font-weight: 800; }
+    }
+}
+
+.royal-footer {
+    padding: 20px;
+    background: #f1f1f1;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.majestic-btn-close {
+    padding: 10px 40px;
+    background: #1a1a1a;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background: #d4af37;
+        color: #1a1a1a;
+    }
+}
+
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}

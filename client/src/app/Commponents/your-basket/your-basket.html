@@ -1,0 +1,49 @@
+<div class="basket-container">
+  <div class="basket-header">
+    <h2><i class="fas fa-shopping-cart" style="color: rgb(0, 0, 0);"></i>הסל שלי</h2>
+    <div class="header-divider"></div>
+  </div>
+
+  <div class="basket-content">
+    <div class="gift-card" [routerLink]="['/gift-details', item.prize.id]" style="cursor: pointer;"
+      *ngFor="let item of groupedTickets" class="basket-card">
+      <div class="prize-img" [style.backgroundImage]="'url(' + item.prize.imgUrl + ')'"></div>
+
+      <div class="prize-details" >
+        <span class="prize-name">{{ item.prize.name }}</span>
+        <span class="prize-category">{{ item.prize.category?.name }}</span>
+        
+        <span *ngIf="item.prize.islottered" class="lottery-status">הגרלה נסגרה</span>
+        
+        <div class="individual-price">
+          <span class="prize-price">{{ item.prize.price }} ₪</span>
+          <span class="quantity-badge">כמות :{{ item.quantity }}</span>
+        </div>
+      </div>
+
+      <button class="delete-btn" (click)="removeTicket(item.prize.id)">
+        <i class="trash-icon"></i> ×
+      </button>
+    </div>
+
+    <div *ngIf="!groupedTickets || groupedTickets.length === 0" class="empty-state">
+      <img src="/images/emptyCart.jpg" alt="סל ריק" class="empty-basket-img">
+    </div>
+  </div>
+
+  <div class="basket-footer">
+    <div class="summary-row">
+      <span>סה"כ כרטיסים:</span>
+      <span>{{ basketData?.yourTickets?.length }}</span>
+    </div>
+    <div class="summary-row total">
+      <span>לתשלום:</span>
+      <span class="total-amount">{{totalCount()}}₪</span>
+    </div>
+
+    <div class="checkout-wrapper">
+      <button class="checkout-button" [disabled]="!basketData?.yourTickets || basketData.yourTickets.length <= 0"
+        (click)="completOrder()">לשלב הבאה</button>
+    </div>
+  </div>
+</div>

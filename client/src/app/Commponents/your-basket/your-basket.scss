@@ -1,0 +1,147 @@
+.basket-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f9f6f2;
+  padding: 15px;
+  box-sizing: border-box;
+  color: #1a1a1a;
+  direction: rtl; /* מבטיח שהכל יזרום מימין לשמאל */
+  border-radius: 10%;
+}
+
+/* כותרת */
+.basket-header h2 {
+  font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+  color: #1a1a1a;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.header-divider {
+  height: 3px;
+  background: linear-gradient(to left, transparent, #d4af37, transparent);
+  margin-bottom: 20px;
+}
+
+/* כרטיס מוצר */
+.basket-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid #000000;
+  gap: 15px;
+}
+
+.prize-img {
+  width: 70px;
+  height: 70px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 1px solid #eee;
+}
+
+.prize-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* דוחף את הבועה והמחיקה לשמאל */
+  min-width: 0; /* מונע מהטקסט לחרוג */
+}
+
+.prize-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.prize-price {
+  color: #000000;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+/* בועת כמות - התיקון המרכזי */
+.quantity-badge {
+  background: #bf953f;
+  color: rgb(0, 0, 0);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border-color: #1a1a1a;
+  border-width:5px;
+  font-size: 0.6rem;
+  font-weight: bold;
+  white-space: nowrap; /* מונע מהמילה כמות לרדת שורה */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-left: 5px; }
+
+/* כפתור מחיקה */
+.delete-btn {
+  background: #fdeaea;
+  border: none;
+  color: #ff4d4d;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* מונע מהכפתור להתכווץ */
+}
+
+/* פוטר */
+.basket-footer {
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 0.9rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.checkout-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.checkout-button {
+  width: 140px;
+  padding: 10px;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+  border : 4px solid #d4af37;
+}
+.lottery-status {
+    color: #ff4d4d;
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+}

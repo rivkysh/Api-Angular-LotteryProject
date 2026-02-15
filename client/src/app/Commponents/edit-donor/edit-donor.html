@@ -1,0 +1,56 @@
+<div class="overlay" (click)="closeMe()"></div>
+
+<div class="royal-update-card">
+  <div class="royal-header-black">
+    <button class="close-btn-silver" (click)="closeEdit.emit()">&times;</button>
+    <div class="header-icon-title">
+      <i class="bi bi-person-gear"></i>
+      <h2>עריכת פרטי תורם</h2>
+    </div>
+    <div class="gold-line-separator"></div>
+  </div>
+
+  <div class="royal-form-body">
+    <form [formGroup]="Donorform" (ngSubmit)="onSubmit()">
+      
+      <div class="royal-field-dark">
+        <label>שם מלא</label>
+        <div class="input-with-icon">
+          <i class="bi bi-person"></i>
+          <input type="text" formControlName="name" placeholder="הכנס שם מלא">
+        </div>
+      </div>
+
+      <div class="royal-field-dark">
+        <label>מספר טלפון</label>
+        <div class="input-with-icon">
+          <i class="bi bi-telephone"></i>
+          <input type="text" formControlName="phoneNumber" placeholder="050-0000000">
+        </div>
+      </div>
+
+      <div class="royal-field-dark">
+        <label>כתובת אימייל</label>
+        <div class="input-with-icon">
+          <i class="bi bi-envelope"></i>
+          <input type="email" formControlName="email" placeholder="example@mail.com">
+        </div>
+      </div>
+
+      <div class="dialog-button-group">
+        <button type="submit" class="majestic-update-submit" [disabled]="Donorform.invalid">
+          <div class="btn-content">
+            <i class="bi bi-check2-circle"></i>
+            <span>עדכון ושמירת נתונים</span>
+          </div>
+          <div class="btn-shine"></div>
+        </button>
+
+        <button type="button" class="cancel-btn-silver" (click)="closeEdit.emit()">
+          ביטול וחזרה
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

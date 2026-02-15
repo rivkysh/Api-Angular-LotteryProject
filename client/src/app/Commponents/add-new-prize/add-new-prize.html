@@ -1,0 +1,58 @@
+<div class="dialog-backdrop">
+  <div class="dialog-content">
+    <button class="close-x" (click)="closeMe.emit()">&times;</button>
+
+    <h2 class="form-title">הוספת מתנה חדשה<i class="bi bi-gift"></i></h2>
+    <div class="gold-divider"></div>
+
+    <form [formGroup]="prizeform" (ngSubmit)="onSubmit()">
+      
+      <div class="form-row">
+        <div class="input-group">
+          <label>שם הפרס</label>
+          <input pInputText type="text" formControlName="name" placeholder="מהי המתנה?">
+        </div>
+        <div class="input-group">
+          <label>מחיר כרטיס</label>
+         <input 
+    pInputText 
+    type="number" 
+    formControlName="price" 
+    placeholder="0.00">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>תיאור הפרס</label>
+        <textarea pInputTextarea formControlName="description" rows="2" placeholder="ספר על המתנה..."></textarea>
+      </div>
+
+      <div class="input-group">
+        <label>קישור לתמונה</label>
+        <input pInputText type="text" formControlName="imgUrl" placeholder="URL של התמונה">
+      </div>
+
+      <div class="form-row">
+        <div class="input-group">
+          <label>קוד תורם</label>
+          <input pInputText type="text" formControlName="donorId">
+        </div>
+        <div class="input-group">
+          <label>קוד קטגוריה</label>
+          <input pInputText type="text" formControlName="categoryId">
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="submit-btn" [disabled]="prizeform.invalid">
+          שמירת המתנה במערכת
+        </button>
+         
+        <button type="button" class="cancel-btn" (click)="closeMe.emit()">
+          ביטול וחזרה
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

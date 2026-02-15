@@ -1,0 +1,28 @@
+<nav class="navbar-luxury">
+  <div class="nav-links">
+    <a *ngIf="userService.getRole() === 'Admin'" routerLink="/prizes" routerLinkActive="active-link">מתנות</a>
+    <a *ngIf="userService.getRole() === 'Admin'" routerLink="/donors" routerLinkActive="active-link">תורמים</a>
+    <a routerLink="/register" *ngIf="userService.isLoggedIn()==false" routerLinkActive="active-link">הרשמה</a>
+    <a *ngIf="userService.getRole() === 'user'" routerLink="/yourBasket" routerLinkActive="active-link">עגלת קניות</a>
+    <a *ngIf="userService.getRole() === 'user'" routerLink="/prizesHome" routerLinkActive="active-link">מתנות</a>
+    <a *ngIf="userService.isLoggedIn()" (click)="userService.logout()">התנתק</a>
+  </div>
+      <div class="ticker-wrapper">
+      <div class="ticker-text">
+מעינים בקטלוג המתנות , מתרשמים,
+בוחרים את מתנות  שבהם אתם רוצים לזכות
+                      ,מבצעים את הרכישה וזוכים....🎈              
+      </div>
+    </div>
+
+
+</nav>
+
+
+<div class="main-layout">
+  <div class="content-area">
+    <router-outlet></router-outlet>
+  </div>
+  @if(userService.getRole() === 'user' ){
+  <app-your-basket class="sidebar"></app-your-basket>}
+</div>

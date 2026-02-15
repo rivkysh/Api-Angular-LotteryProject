@@ -1,0 +1,38 @@
+<div class="overlay" ></div>
+
+<div class="royal-gifts-dialog">
+    <div class="royal-header-black">
+      
+        <div class="header-content">
+            <i class="fas fa-gift gift-main-icon"></i>
+            
+        </div>
+        <div class="gold-divider"></div>
+    </div>
+
+    <div class="royal-dialog-body">
+        @if (donorPrizes && donorPrizes.length > 0) {
+            <div class="gifts-grid">
+                @for (gift of donorPrizes; track gift.id) {
+                    <div class="gift-card-mini">
+                        <div class="gift-image-container">
+                            <img [src]="gift.imgUrl || 'assets/default-gift.png'" [alt]="gift.name">
+                        </div>
+                        <div class="gift-details">
+                            <span class="gift-name">{{ gift.name }}</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        } @else {
+            <div class="no-gifts-state">
+                <i class="fas fa-box-open"></i>
+                <p>לא נמצאו מתנות לתורם זה</p>
+            </div>
+        }
+    </div>
+
+    <div class="royal-footer">
+        <button class="majestic-btn-close" (click)="close()">סגירה</button>
+    </div>
+</div>

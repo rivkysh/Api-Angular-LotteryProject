@@ -1,0 +1,166 @@
+/* ייבוא פונטים */
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&family=Assistant:wght@400;700&display=swap');
+
+/* הגדרות כלליות למניעת גלילה כפולה */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* הגלילה תתבצע רק בתוך ה-Content Area */
+  font-family: 'Assistant', sans-serif;
+}
+
+/* --- עיצוב ה-NAVBAR המקורי שלך --- */
+.navbar-luxury {
+  background: linear-gradient(to bottom, #1a1a1a, #000000);
+  border-bottom: 2px solid #d4af37;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  position: fixed; /* מקובע לראש הדף */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  direction: rtl;
+  box-sizing: border-box;
+}
+
+.logo-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom, 
+    #fcf6ba 0%, 
+    #bf953f 25%, 
+    #fbf5b7 50%, 
+    #aa771c 75%, 
+    #bf953f 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; 
+  font-family: 'Suez One', serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  color: #f1d592;
+}
+
+.active-link {
+  color: #d4af37 !important;
+  border-bottom: 2px solid #d4af37;
+}
+
+.nav-spacer {
+  flex: 1;
+}
+
+/* --- עיצוב ה-LAYOUT החדש (80/20) --- */
+
+.main-layout {
+  display: flex;
+  margin-top: 90px; /* מפנה מקום ל-Navbar הקבוע */
+  width: 100%;
+  height: calc(100vh - 90px); /* גובה המסך פחות ה-Navbar */
+  direction: rtl; /* סידור מימין לשמאל */
+}
+
+/* אזור הדפים (מתנות וכו') - 80% */
+.content-area {
+  // flex: 0 0 85%;
+  flex-grow: 1;
+  // max-width: 85%;
+  height: 100%;
+  overflow-y: auto; /* מאפשר גלילה רק בתוך הדף הזה */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+/* קומפוננטת הסל בצד - 20% */
+.sidebar {
+  flex: 0 0 20%;
+  max-width: 20%;
+  background-color: #f9f6f2; /* הרקע הבהיר מהתמונה */
+  border-right: 1px solid #d4af37; /* קו זהב מפריד */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+/* מוודא שהקומפוננטה הפנימית של הסל נמתחת על הכל */
+app-your-basket {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* ודאי שה-Navbar עצמו מאפשר התרחבות */
+.navbar-luxury {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 1000;
+  /* חשוב: מבטל חסימות צדדיות */
+  justify-content: flex-start; 
+}
+
+/* התיבה שבה הטקסט רץ */
+.ticker-wrapper {
+  /* הפקודה הזו תכריח אותו לקחת את כל מה שנשאר עד הסוף */
+  flex-grow: 1; 
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-right: 30px; /* רווח מהמילה 'התנתק' */
+  /* מחקתי פה כל max-width כדי שלא יגביל אותך */
+}
+
+.ticker-text {
+  position: absolute;
+  white-space: nowrap;
+  font-weight: bold;
+  color: white;
+  font-size: 1rem;
+  line-height: 90px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* האנימציה נשארת על אותו זמן (40 שניות) */
+  animation: marquee 45s linear infinite;
+}
+
+/* --- כאן ביצעתי את השינוי --- */
+@keyframes marquee {
+  0% { 
+    transform: translateX(-100%); /* מתחיל מחוץ למסך בצד שמאל */
+  }
+  100% { 
+    transform: translateX(100%);  /* מסיים מחוץ למסך בצד ימין */
+  }
+}

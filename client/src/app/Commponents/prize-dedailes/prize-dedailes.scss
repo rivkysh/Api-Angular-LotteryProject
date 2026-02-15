@@ -1,0 +1,149 @@
+// משתני הצבעים (ללא שינוי)
+$gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+$bg-gradient: radial-gradient(circle at center, #2c3e50 0%, #000000 100%);
+$gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+$silver-gradient: linear-gradient(135deg, #bdc3c7, #ffffff, #7f8c8d);
+$royal-black: #1a1a1a;
+$soft-white: #fdfdfd;
+.details-container {
+  min-height: 100vh;
+  background: $royal-black;
+  background-attachment: fixed;
+  padding: 30px 20px; // הקטנו פדינג חיצוני
+  direction: rtl;
+  color: #f9f6f2;
+  font-family: 'Assistant', sans-serif;
+}
+
+/* קישור חזרה - הוגדל והודגש */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #bf953f;
+  cursor: pointer;
+  margin-bottom: 25px;
+  font-weight: 800;
+  font-size: 1.4rem; // הוגדל מ-1.1
+  transition: 0.3s;
+  max-width: 950px;
+  margin-right: auto;
+  margin-left: auto;
+
+  &:hover {
+    color: #fcf6ba;
+    transform: scale(1.05); // אפקט הגדלה קטן ב-hover
+  }
+
+  i {
+    font-size: 1.6rem; // חץ גדול יותר
+  }
+}
+
+/* המבנה המרכזי - הוקטן */
+.gift-showcase {
+  max-width: 950px; // הוקטן מ-1100
+  margin: 0 auto;
+  display: flex;
+  gap: 30px; // הוקטן הרווח בין הצדדים
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  padding: 25px; // הוקטן הפדינג הפנימי
+  border-radius: 20px;
+  border: 1px solid rgba(191, 149, 63, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  align-items: center;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+/* עיצוב התמונה - הוקטנה */
+.main-image {
+  flex: 0 0 380px; // גודל קבוע וקצת יותר קטן
+  width: 380px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 1px solid rgba(191, 149, 63, 0.4);
+
+  @media (max-width: 850px) {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+  }
+}
+
+/* צד המידע - צמצום פונטים */
+.info-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .gift-name {
+    font-size: 2.2rem; // הוקטן מ-3rem
+    margin: 0;
+    background: $gold-gradient;
+    -webkit-animation: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+  }
+
+  .gift-price {
+    font-size: 1.6rem; // הוקטן מ-2rem
+    color: #fcf6ba;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .description-box {
+    margin-top: 10px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 3px solid #b38728;
+    border-radius: 4px;
+
+    h3 {
+      color: #bf953f;
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 0.95rem; // טקסט תיאור עדין יותר
+      color: #d0d0d0;
+    }
+  }
+}
+
+/* כפתור הוספה לסל - קטן יותר */
+.action-section {
+  margin-top: 20px;
+
+  .add-to-cart-btn {
+    width: 100%;
+    max-width: 240px; // כפתור צר יותר
+    background: $gold-gradient;
+    color: #2c2512;
+    border: none;
+    padding: 12px 20px; // הוקטן מ-18
+    border-radius: 50px;
+    font-size: 1.1rem; // הוקטן מ-1.3
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(184, 134, 11, 0.4);
+    }
+  }
+}

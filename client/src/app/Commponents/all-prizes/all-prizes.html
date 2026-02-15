@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<div class="filter-container">
+</div>
+<div class="category-container">
+  <button class="category-btn" (click)="getByCategory('all')">
+    <span class="cat-name">כל הפרסים</span>
+    <span class="cat-icon"></span>
+  </button>
+  <button class="category-btn" (click)="getByCategory('רכב')">
+    <span class="cat-name">רכב</span>
+    <span class="cat-icon"></span>
+  </button>
+  <button class="category-btn" (click)="getByCategory('לבית ולמשפחה')">
+    <span class="cat-name">לבית ולמשפחה</span>
+    <span class="cat-icon"></span>
+  </button>
+  <button class="category-btn" (click)="getByCategory('מתנות לאישה')">
+    <span class="cat-name">מתנות לאישה</span>
+    <span class="cat-icon"></span>
+  </button>
+  <button class="category-btn" (click)="getByCategory('מתנות לגבר')">
+    <span class="cat-name">מתנות לגבר</span>
+    <span class="cat-icon"></span>
+  </button>
+  <button class="category-btn" (click)="getByCategory('תירות ונופש')">
+    <span class="cat-name">תיירות ונופש</span>
+    <span class="cat-icon"></span>
+  </button>
+  <input type="number" class="price-filter-input" #priceInput (keydown.enter)="filterByPrice(+priceInput.value)"
+    placeholder="חפוש לפי מחיר ...">
+</div>
+<div class="prizes-container">
+  @for (gift of allprizes; track gift.id) {
+  <div class="gift-card" [routerLink]="['/gift-details', gift.id]" style="cursor: pointer;">
+
+    <div class="image-wrapper">
+      <img [src]="gift.imgUrl" [alt]="gift.name">
+      <div class="price-badge">{{ gift.price }} ₪</div>
+    </div>
+
+    <div class="card-content">
+      <h3 class="gift-title">{{ gift.name }}</h3>
+      <p class="gift-description">{{ gift.description }}</p>
+
+      <div class="divider"></div>
+
+      @if (gift.islottered) {
+      <div class="winner-section">
+        <span class="winner-label">הזוכה המאושר/ת:</span>
+        <span class="winner-name">{{ gift.thewinner.name || 'טרם עודכן' }}</span>
+        <div class="closed-notice">המכירה סגורה</div>
+      </div>
+      } @else {
+      <div class="counter-section" (click)="$event.stopPropagation()">
+        <button class="count-btn gold" (click)="addQuantity(gift)">+</button>
+        <span class="count-value">{{gift.quantity}}</span>
+        <button class="count-btn silver" (click)="lessQuantity(gift)">-</button>
+      </div>
+
+      <button class="add-btn" (click)="$event.stopPropagation()" (click)="addToBasket(gift.id,gift.quantity)">
+        <i class="fas fa-shopping-cart" style="color: blanchedalmond;"></i>
+        הוספה לסל
+      </button>
+      }
+    </div>
+  </div>
+  }
+</div>

@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<div class="donors-page-container">
+    <div class="header-section">
+        <h1 class="main-title centered">רשימת התורמים</h1>
+        <button class="gold-silver-btn" (click)="openAddNewDonor()">
+            <i class="fas fa-user-plus"></i>
+            <span>הוספת תורם חדש</span>
+        </button>
+        <div class="search-toolbar">
+            <input type="text" class="search-input" placeholder="חיפוש תורם..." [(ngModel)]="searchTerm" />
+
+            <div class="filter-buttons">
+                <button class="gold-silver-btn" (click)="getAll()">כל התורמים</button>
+                <button class="gold-silver-btn" (click)="sortByName()">שם</button>
+                <button class="gold-silver-btn" (click)="sortByEmail()">מייל</button>
+                <button class="gold-silver-btn" (click)="sortByPrize()">מתנה</button>
+            </div>
+        </div>
+
+    </div>
+
+    @if (allDonors.length > 0) {
+    <div class="donors-list">
+        @for (donor of allDonors; track donor.id) {
+        <div class="donor-majestic-card">
+            <div class="card-edge"></div>
+
+            <div class="donor-content">
+                <div class="identity-section">
+                    <i class="fas fa-user-tie donor-icon"></i>
+                    <span class="title-label">{{donor.Id}}</span>
+
+                    <div class="name-wrapper">
+                        <span class="title-label">שם</span>
+                        <h3 class="donor-full-name">{{ donor.name }}</h3>
+                    </div>
+
+                    <div class="name-wrapper">
+                        <span class="title-label">
+                            <i class="fas fa-phone-alt gold-icon"></i> טלפון
+                        </span>
+                        <h3 class="donor-phone">{{ donor.phoneNumber }}</h3>
+                    </div>
+
+                    <div class="name-wrapper">
+                        <span class="title-label">
+                            <i class="fas fa-envelope gold-icon"></i> מייל
+                        </span>
+                        <h3 class="donor-email">{{ donor.email }}</h3>
+                    </div>
+                </div>
+
+                <div class="actions-section">
+                    <button class="action-btn delete-silver" (click)="editDonor(donor.id, donor)">
+                        <i class="fas fa-pen-fancy"></i>
+                        <span>עריכה</span>
+                    </button>
+                    <button class="action-btn delete-silver" (click)="deleteDonor(donor.id)">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>מחיקה</span>
+                    </button>
+                    <button class="action-btn delete-silver" (click)="ShowPrizes(donor.id, donor.name)">
+                        <i class="fas fa-gift"></i>
+                        <span>מתנות</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>
+@if(openEdit) {
+<app-edit-donor [thisId]="thisId" [thisDonor]="thisDonor" (closeEdit)="onCloseDialog()"></app-edit-donor>
+}
+
+@if(OpenInsert) {
+<app-add-new-donor (closeInsert)="onCloseInsert()"></app-add-new-donor>
+}
+@if(openPrizes) {
+<app-get-prizes-by-donor [donorId]="thisId" [donorName]="thisDonor"
+    (closePrizes)="onClosePrizes()"></app-get-prizes-by-donor>
+}

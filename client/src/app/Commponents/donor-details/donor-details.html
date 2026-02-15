@@ -1,0 +1,43 @@
+<div class="modal-overlay" (click)="onClose()">
+  <div class="donor-modal-content" (click)="$event.stopPropagation()">
+    
+    <button class="close-btn" (click)="onClose()">&times;</button>
+
+    <div class="donor-card-header">
+      <div class="icon-circle">
+        <i class="bi bi-person-vcard"></i>
+      </div>
+      <h2 class="form-title">פרטי תורם</h2>
+      <div class="gold-divider"></div>
+    </div>
+
+    <div class="donor-info-grid">
+      <div class="info-item">
+        <span class="info-label">שם מלא</span>
+        <div class="info-value">
+          <i class="bi bi-person-fill"></i>
+          <span>{{ donorDetails?.name }}</span>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="info-label">טלפון</span>
+        <div class="info-value">
+          <i class="bi bi-telephone-fill"></i>
+          <span dir="ltr">{{ donorDetails?.phoneNumber }}</span>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="info-label">אימייל</span>
+        <div class="info-value">
+          <i class="bi bi-envelope-at-fill"></i>
+          <span>{{ donorDetails.email }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+    </div>
+  </div>
+</div>

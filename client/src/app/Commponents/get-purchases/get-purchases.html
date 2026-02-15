@@ -1,0 +1,38 @@
+
+<div class="royal-update-card list-wide">
+    <div class="royal-header-black">
+        <button class="close-dialog-x" (click)="closeDialog()">&times;</button>
+        <div class="header-icon-title">
+            <i class="bi bi-people-fill"></i>
+            <h2>רשימת הרוכשים</h2>
+        </div>
+        <div class="gold-line-separator"></div>
+    </div>
+
+    <div class="royal-form-body">
+        <div class="table-scroll-container">
+            <table class="luxury-table-styled">
+                <thead>
+                    <tr>
+                        <th>שם</th>
+                        <th>טלפון</th>
+                        <th>אימייל</th>
+                        <th>תאריך</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of purchasers">
+                        <td class="bold-name">{{ item.user.name }}</td>
+                        <td>{{ item.user.phoneNumber }}</td>
+                        <td class="email-text">{{ item.user.email }}</td>
+                        <td class="date-text">{{ item.date | date:'dd/MM/yy HH:mm' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="dialog-button-group">
+           
+        </div>
+    </div>
+</div>

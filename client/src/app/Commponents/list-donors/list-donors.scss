@@ -1,0 +1,176 @@
+$gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+$silver-gradient: linear-gradient(135deg, #bdc3c7, #ffffff, #7f8c8d);
+$bg-gradient: radial-gradient(circle at center, #2c3e50 0%, #000000 100%);
+$card-bg: rgba(30, 30, 30, 0.95);
+
+.donors-page-container {
+    background: $bg-gradient;
+    min-height: 100vh;
+    padding: 40px 20px;
+    direction: rtl;
+    font-family: 'Assistant', sans-serif;
+}
+
+.header-section {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+}
+
+.main-title.centered {
+    background: $gold-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0;
+}
+
+/* סרגל החיפוש המעודכן */
+.search-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* הצמדה לימין */
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    border-radius: 50px; /* צורה מעוגלת יותר לסרגל כולו */
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    gap: 15px;
+}
+
+/* האינפוט המוקטן */
+.search-input {
+    flex: 0 1 220px; /* הגבלה ל-220 פיקסלים */
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(127, 140, 141, 0.4);
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.3s;
+
+    &:focus {
+        border-color: #bf953f;
+        flex: 0 1 250px; /* גדילה קלה במיקוד */
+    }
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap; /* שומר על כולם בשורה אחת */
+}
+
+.gold-silver-btn {
+    background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 45%, #d4af37 55%, #b8860b 100%);
+    background-size: 200% auto;
+    color: #1a1a1a;
+    border: 1px solid #b8860b;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.4s;
+    white-space: nowrap;
+
+    &:hover {
+        background-position: right center;
+        transform: translateY(-2px);
+    }
+}
+
+/* עיצוב הכרטיסים */
+.donors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.donor-majestic-card {
+    background: $card-bg;
+    min-height: 90px;
+    border-radius: 12px;
+    display: flex;
+    position: relative;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    overflow: hidden;
+    transition: 0.3s;
+
+    &:hover {
+        transform: scale(1.01);
+        border-color: rgba(212, 175, 55, 0.5);
+    }
+}
+
+.card-edge {
+    width: 6px;
+    background: $gold-gradient;
+}
+
+.donor-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 25px;
+}
+
+.identity-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.donor-icon {
+    font-size: 2rem;
+    background: $gold-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.name-wrapper {
+    .title-label {
+        color: #bf953f;
+        font-size: 0.75rem;
+        margin-bottom: 2px;
+    }
+    .donor-full-name, .donor-phone, .donor-email {
+        color: #ffffff;
+        font-size: 1.1rem;
+        margin: 0;
+    }
+}
+
+.actions-section {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 6px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border: none;
+    transition: 0.2s;
+
+    &.edit-gold { background: $gold-gradient; color: #2c2512; }
+    &.delete-silver { 
+        background: transparent; 
+        color: #fff; 
+        border: 1px solid #7f8c8d; 
+    }
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }

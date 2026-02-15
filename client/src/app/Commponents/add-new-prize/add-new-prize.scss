@@ -1,0 +1,178 @@
+/* שכבת הרקע הכהה */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* רקע חצי שקוף */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* תיבת התוכן הלבנה */
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+/* כפתור סגירה קטן בפינה */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+/* משתנה הזהב היוקרתי שלך */
+$gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+
+.dialog-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.7); 
+  backdrop-filter: blur(10px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  direction: rtl; /* תמיכה בעברית */
+}
+
+.dialog-content {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  border: 2px solid #d4af37; 
+  box-shadow: 0 0 50px rgba(184, 134, 11, 0.3);
+  max-width: 500px;
+  width: 45%;
+  position: relative;
+  animation: scaleUp 0.3s ease-out;
+}
+
+.close-x {
+  position: absolute;
+  top: 15px; left: 20px; /* צד שמאל בגלל ה-RTL */
+  background: none; border: none;
+  font-size: 2rem; color: #888;
+  cursor: pointer;
+  z-index: 10;
+  &:hover { color: #d4af37; }
+}
+
+.form-title {
+  text-align: center;
+  color: #1a1a1a;
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.gold-divider {
+  height: 3px;
+  background: $gold-gradient;
+  width: 70px;
+  margin: 10px auto 30px;
+  border-radius: 5px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: right;
+
+  label { 
+    font-weight: bold; 
+    color: #444; 
+    margin-bottom: 8px; 
+    display: block; 
+  }
+
+  /* התאמה לאינפוטים רגילים ושל PrimeNG */
+  input, textarea, ::ng-deep .p-inputtext, ::ng-deep .p-inputnumber-input {
+    width: 100% !important; 
+    padding: 12px;
+    border: 1px solid #ddd !important; 
+    border-radius: 12px !important;
+    font-family: inherit;
+    transition: 0.2s;
+
+    &:focus { 
+      border-color: #bf953f !important; 
+      outline: none; 
+      box-shadow: 0 0 8px rgba(191, 149, 63, 0.2) !important;
+    }
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.submit-btn {
+  background: $gold-gradient;
+  border: none; 
+  padding: 15px; 
+  border-radius: 15px;
+  font-weight: 900; 
+  color: #44340f; 
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  
+  &:disabled { 
+    opacity: 0.5; 
+    cursor: not-allowed;
+  }
+  
+  &:hover:not(:disabled) { 
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.4); 
+  }
+}
+
+.cancel-btn {
+  background: none; 
+  border: 1px solid #ccc;
+  padding: 10px; 
+  border-radius: 15px; 
+  color: #888; 
+  cursor: pointer;
+  transition: 0.2s;
+  
+  &:hover { 
+    background: #f9f9f9; 
+    color: #444;
+  }
+}
+
+/* אנימציית הכניסה */
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* התאמה לרכיב המספר של PrimeNG שיהיה ברוחב מלא */
+::ng-deep .p-inputnumber {
+    width: 100%;
+}
